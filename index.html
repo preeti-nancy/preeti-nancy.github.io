@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preeti Nancy Kujur</title>
+<meta name="description" content="Portfolio of Preeti Nancy Kujur — Data Science, Machine Learning and Generative AI projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaf8; --surface: #ffffff; --text: #1c1b1f; --muted: #5f5d66;
+    --border: #e6e3de; --accent: #4f46e5; --accent-soft: #eef0ff; --chip: #f2f0ec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #111114; --surface: #19191d; --text: #ecebf0; --muted: #a09fa8;
+      --border: #2a2a30; --accent: #8b85ff; --accent-soft: #23224a; --chip: #232328;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #111114; --surface: #19191d; --text: #ecebf0; --muted: #a09fa8;
+    --border: #2a2a30; --accent: #8b85ff; --accent-soft: #23224a; --chip: #232328;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 Inter, system-ui, sans-serif; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+
+  nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+  nav .logo { font-weight: 700; color: var(--text); }
+  nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+  nav ul a { color: var(--muted); font-size: 14px; font-weight: 500; }
+  nav ul a:hover { color: var(--text); text-decoration: none; }
+  #theme { background: none; border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 4px 10px; cursor: pointer; font: inherit; font-size: 14px; }
+
+  header.hero { padding: 88px 0 64px; }
+  .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+  .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--accent); margin: 0 0 12px; }
+  h1 { font-size: clamp(36px, 6vw, 56px); line-height: 1.1; margin: 0 0 16px; letter-spacing: -0.02em; }
+  .lead { font-size: 18px; color: var(--muted); max-width: 600px; margin: 0 0 28px; }
+  .avatar { width: 180px; height: 180px; border-radius: 50%; border: 4px solid var(--surface); box-shadow: 0 0 0 1px var(--border); object-fit: cover; }
+  .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 10px 18px; border-radius: 10px; font-weight: 600; font-size: 15px; border: 1px solid var(--border); color: var(--text); background: var(--surface); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn:hover { text-decoration: none; filter: brightness(1.05); }
+
+  section { padding: 64px 0; border-top: 1px solid var(--border); }
+  h2 { font-size: 28px; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); margin: 0 0 32px; }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+  .stat b { display: block; font-size: 26px; }
+  .stat span { color: var(--muted); font-size: 14px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; transition: transform .15s, box-shadow .15s; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.06); }
+  .card .tag { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--accent); background: var(--accent-soft); padding: 2px 8px; border-radius: 6px; align-self: flex-start; margin-bottom: 12px; }
+  .card h3 { margin: 0 0 8px; font-size: 18px; }
+  .card p { margin: 0 0 16px; color: var(--muted); font-size: 15px; flex: 1; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .chip { background: var(--chip); border-radius: 999px; padding: 3px 10px; font-size: 12.5px; color: var(--muted); }
+  .card .links { display: flex; gap: 16px; font-size: 14px; font-weight: 600; }
+
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .filters button { font: inherit; font-size: 14px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--muted); cursor: pointer; }
+  .filters button.on { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+  .skill-group h3 { font-size: 15px; margin: 0 0 12px; }
+
+  .timeline { border-left: 2px solid var(--border); padding-left: 24px; display: grid; gap: 32px; }
+  .tl-item { position: relative; }
+  .tl-item::before { content: ""; position: absolute; left: -31px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+  .tl-item h3 { margin: 0; font-size: 17px; }
+  .tl-item .meta { color: var(--muted); font-size: 14px; margin-bottom: 6px; }
+  .tl-item p { margin: 0; color: var(--muted); }
+
+  .recent { display: grid; gap: 10px; }
+  .recent a.row { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 18px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text); }
+  .recent a.row:hover { text-decoration: none; border-color: var(--accent); }
+  .recent .when { color: var(--muted); font-size: 13px; white-space: nowrap; font-family: "JetBrains Mono", monospace; }
+  .recent .desc { color: var(--muted); font-size: 14px; display: block; }
+
+  footer { padding: 48px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; }
+  .contact { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+
+  @media (max-width: 720px) {
+    nav ul { display: none; }
+    header.hero { padding: 56px 0 40px; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .avatar { width: 112px; height: 112px; order: -1; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .grid { grid-template-columns: 1fr; }
+    .recent a.row { flex-direction: column; align-items: flex-start; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">Preeti Nancy Kujur</a>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#recent">Recent</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button id="theme" aria-label="Toggle color theme">◐</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">// Data Science · Machine Learning · Generative AI</p>
+        <h1>Hi, I'm Preeti.<br>I turn data into decisions.</h1>
+        <p class="lead">I build end-to-end ML and GenAI solutions, from statistical analysis and predictive models to computer vision, RAG pipelines and agentic AI systems, deployed with MLOps best practices.</p>
+        <div class="btns">
+          <a class="btn primary" href="#projects">View my work</a>
+          <a class="btn" href="https://github.com/preeti-nancy" target="_blank" rel="noopener">GitHub ↗</a>
+          <!-- Add your resume: put resume.pdf next to this file and uncomment -->
+          <!-- <a class="btn" href="resume.pdf" target="_blank">Resume</a> -->
+        </div>
+      </div>
+      <img class="avatar" src="https://avatars.githubusercontent.com/u/18681344?v=4" alt="Preeti Nancy Kujur">
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="stat-repos">10+</b><span>Public projects</span></div>
+      <div class="stat"><b>4</b><span>AI domains: ML, DL, CV, NLP</span></div>
+      <div class="stat"><b>RAG</b><span>&amp; Agentic AI systems</span></div>
+      <div class="stat"><b>CI/CD</b><span>MLOps with GitHub Actions</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Featured work</h2>
+    <p class="sub">Selected projects solving real business problems, each with a problem statement, approach and outcome.</p>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="project-grid"></div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="sub">Tools and techniques I use across the data &amp; AI lifecycle.</p>
+    <div class="skills" id="skills-grid"></div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience &amp; learning</h2>
+    <p class="sub">Where I've worked and what I've been building toward.</p>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<section id="recent">
+  <div class="wrap">
+    <h2>Recently updated</h2>
+    <p class="sub">Pulled live from GitHub, so this list stays current whenever I push new work.</p>
+    <div class="recent" id="recent-list"><p class="sub">Loading latest repositories…</p></div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2 style="color:var(--text)">Let's connect</h2>
+    <p>Open to Data Science, ML and GenAI opportunities and collaborations.</p>
+    <div class="contact">
+      <a class="btn" href="https://github.com/preeti-nancy" target="_blank" rel="noopener">GitHub</a>
+      <!-- Fill in your links and uncomment: -->
+      <!-- <a class="btn" href="https://www.linkedin.com/in/YOUR-HANDLE" target="_blank" rel="noopener">LinkedIn</a> -->
+      <!-- <a class="btn" href="mailto:you@example.com">Email</a> -->
+    </div>
+    <p style="margin-top:32px">© <span id="year"></span> Preeti Nancy Kujur</p>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   EDIT YOUR CONTENT HERE: add a new object to PROJECTS to
+   feature it. Anything you push to GitHub also shows up
+   automatically in the "Recently updated" section.
+   ============================================================ */
+const GITHUB_USER = "preeti-nancy";
+
+const PROJECTS = [
+  {
+    title: "Airline Q&A Bot: RAG Benchmarking",
+    category: "GenAI",
+    repo: "Airlines_QandA_Bot",
+    summary: "Compared baseline LLM answers, prompt-engineered responses, retrieval-augmented generation, and six tuned RAG configurations to find the most accurate setup for airline customer queries.",
+    tech: ["LLMs", "RAG", "Prompt Engineering", "Vector Search", "Evaluation"]
+  },
+  {
+    title: "NewsFindr: Agentic News Retrieval",
+    category: "GenAI",
+    repo: "Advanced-GenAI-for-NLP",
+    summary: "An agentic AI system that delivers real-time, personalized and credible news updates by orchestrating retrieval, ranking and summarization agents.",
+    tech: ["Agentic AI", "LLMs", "NLP", "Tool Use"]
+  },
+  {
+    title: "Medical RAG Assistant",
+    category: "GenAI",
+    repo: "NLP-with-GenAI",
+    summary: "A RAG-based AI solution grounded in renowned medical manuals to answer clinical questions and address healthcare information challenges.",
+    tech: ["RAG", "Embeddings", "LLMs", "Healthcare"]
+  },
+  {
+    title: "SafeGuard: Helmet Detection",
+    category: "Deep Learning",
+    repo: "ComputerVision",
+    summary: "Automated image analysis that detects whether workers are wearing safety helmets, supporting workplace safety compliance for SafeGuard Corp.",
+    tech: ["Computer Vision", "CNNs", "Transfer Learning", "TensorFlow/Keras"]
+  },
+  {
+    title: "ReneWind: Turbine Failure Prediction",
+    category: "Deep Learning",
+    repo: "Neural_Networks",
+    summary: "Neural network classifiers that predict wind turbine generator failures, enabling proactive maintenance and reducing repair costs.",
+    tech: ["Neural Networks", "Classification", "Imbalanced Data"]
+  },
+  {
+    title: "Customer Targeting MLOps Pipeline",
+    category: "MLOps",
+    repo: "MLOps_Project",
+    summary: "End-to-end pipeline covering preprocessing, training, evaluation and deployment with GitHub Actions CI/CD to improve marketing decisions and customer acquisition.",
+    tech: ["Python", "CI/CD", "GitHub Actions", "Model Deployment"]
+  },
+  {
+    title: "Predictive Model Deployment",
+    category: "MLOps",
+    repo: "Model-Deployment",
+    summary: "Operationalized business insights at scale by building and deploying a predictive model as a usable service.",
+    tech: ["Model Serving", "Python", "Scikit-learn"]
+  },
+  {
+    title: "EasyVisa: Visa Approval Prediction",
+    category: "Machine Learning",
+    repo: "Advanced_Machine_Learning",
+    summary: "Analyzed visa applicant data and built ensemble models to predict certification outcomes and surface the factors that drive approval.",
+    tech: ["Ensembles", "Boosting", "Feature Engineering", "Hyperparameter Tuning"]
+  },
+  {
+    title: "E-news Express: A/B Testing",
+    category: "Analytics",
+    repo: "Applied-Statistics",
+    summary: "Used statistical analysis, A/B testing and visualization to decide whether a new landing page is effective at converting new subscribers.",
+    tech: ["Hypothesis Testing", "A/B Testing", "Pandas", "Seaborn"]
+  },
+  {
+    title: "SQL Business Case Study",
+    category: "Analytics",
+    repo: "SQL_CaseStudy",
+    summary: "Turned unorganized flat-file data into answers to key business questions using MySQL queries, joins and aggregations.",
+    tech: ["MySQL", "SQL", "Data Analysis"]
+  }
+];
+
+const SKILLS = {
+  "Languages & Data": ["Python", "SQL / MySQL", "Pandas", "NumPy", "Jupyter"],
+  "Machine Learning": ["Scikit-learn", "XGBoost", "Ensembles", "Feature Engineering", "Model Tuning"],
+  "Deep Learning & CV": ["Neural Networks", "CNNs", "TensorFlow / Keras", "Transfer Learning"],
+  "GenAI & NLP": ["LLMs", "RAG", "Prompt Engineering", "Agentic AI", "Embeddings"],
+  "Statistics & Viz": ["Hypothesis Testing", "A/B Testing", "Matplotlib", "Seaborn"],
+  "MLOps": ["GitHub Actions", "CI/CD", "Model Deployment", "Git"]
+};
+
+// Edit roles, dates and descriptions to match your own history.
+const TIMELINE = [
+  {
+    title: "eClerx",
+    meta: "Professional experience",
+    text: "Working on data-driven solutions for business operations. Update this line with your role, dates and key achievements."
+  },
+  {
+    title: "Post Graduate Program: AI & Machine Learning",
+    meta: "Capstone and hands-on projects",
+    text: "Completed applied projects across statistics, ML, deep learning, computer vision, NLP, generative AI and MLOps, all showcased above."
+  }
+];
+
+/* ============================================================ */
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function renderProjects(filter) {
+  const list = filter === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
+  $("project-grid").innerHTML = list.map((p) => `
+    <article class="card">
+      <span class="tag">${esc(p.category)}</span>
+      <h3>${esc(p.title)}</h3>
+      <p>${esc(p.summary)}</p>
+      <div class="chips">${p.tech.map((t) => `<span class="chip">${esc(t)}</span>`).join("")}</div>
+      <div class="links">
+        <a href="https://github.com/${GITHUB_USER}/${esc(p.repo)}" target="_blank" rel="noopener">Code ↗</a>
+        ${p.demo ? `<a href="${esc(p.demo)}" target="_blank" rel="noopener">Live demo ↗</a>` : ""}
+      </div>
+    </article>`).join("");
+}
+
+function renderFilters() {
+  const cats = ["All", ...new Set(PROJECTS.map((p) => p.category))];
+  $("filters").innerHTML = cats.map((c, i) => `<button class="${i === 0 ? "on" : ""}" data-cat="${esc(c)}">${esc(c)}</button>`).join("");
+  $("filters").addEventListener("click", (e) => {
+    const b = e.target.closest("button");
+    if (!b) return;
+    document.querySelectorAll("#filters button").forEach((x) => x.classList.toggle("on", x === b));
+    renderProjects(b.dataset.cat);
+  });
+}
+
+function renderSkills() {
+  $("skills-grid").innerHTML = Object.entries(SKILLS).map(([group, items]) => `
+    <div class="skill-group">
+      <h3>${esc(group)}</h3>
+      <div class="chips">${items.map((s) => `<span class="chip">${esc(s)}</span>`).join("")}</div>
+    </div>`).join("");
+}
+
+function renderTimeline() {
+  $("timeline").innerHTML = TIMELINE.map((t) => `
+    <div class="tl-item">
+      <h3>${esc(t.title)}</h3>
+      <div class="meta">${esc(t.meta)}</div>
+      <p>${esc(t.text)}</p>
+    </div>`).join("");
+}
+
+function timeAgo(iso) {
+  const days = Math.floor((Date.now() - new Date(iso)) / 86400000);
+  if (days < 1) return "today";
+  if (days < 30) return `${days}d ago`;
+  if (days < 365) return `${Math.floor(days / 30)}mo ago`;
+  return `${Math.floor(days / 365)}y ago`;
+}
+
+async function loadRecent() {
+  try {
+    const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?sort=pushed&per_page=6`);
+    if (!res.ok) throw new Error(res.status);
+    const repos = (await res.json()).filter((r) => !r.fork);
+    $("recent-list").innerHTML = repos.map((r) => `
+      <a class="row" href="${esc(r.html_url)}" target="_blank" rel="noopener">
+        <span><strong>${esc(r.name.replace(/[-_]/g, " "))}</strong>
+          <span class="desc">${esc(r.description || "")}</span></span>
+        <span class="when">${esc(r.language || "")} · ${timeAgo(r.pushed_at)}</span>
+      </a>`).join("");
+    const user = await fetch(`https://api.github.com/users/${GITHUB_USER}`).then((r) => r.json());
+    if (user.public_repos) $("stat-repos").textContent = user.public_repos;
+  } catch {
+    $("recent-list").innerHTML = `<p class="sub">See all my latest work on <a href="https://github.com/${GITHUB_USER}?tab=repositories">GitHub ↗</a></p>`;
+  }
+}
+
+$("theme").addEventListener("click", () => {
+  const root = document.documentElement;
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+  try { localStorage.setItem("theme", root.dataset.theme); } catch {}
+});
+try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch {}
+
+$("year").textContent = new Date().getFullYear();
+renderFilters();
+renderProjects("All");
+renderSkills();
+renderTimeline();
+loadRecent();
+</script>
+</body>
+</html>
