@@ -80,6 +80,8 @@
   .tl-item h3 { margin: 0; font-size: 17px; }
   .tl-item .meta { color: var(--muted); font-size: 14px; margin-bottom: 6px; }
   .tl-item p { margin: 0; color: var(--muted); }
+  .tl-item ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 15px; }
+  .tl-item li + li { margin-top: 4px; }
 
   .recent { display: grid; gap: 10px; }
   .recent a.row { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 18px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text); }
@@ -110,6 +112,7 @@
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#recent">Recent</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -121,9 +124,9 @@
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <p class="eyebrow">// Data Science · Machine Learning · Generative AI</p>
+        <p class="eyebrow">// Product Manager &amp; Data Engineering Leader · Pune, India</p>
         <h1>Hi, I'm Preeti.<br>I turn data into decisions.</h1>
-        <p class="lead">I build end-to-end ML and GenAI solutions, from statistical analysis and predictive models to computer vision, RAG pipelines and agentic AI systems, deployed with MLOps best practices.</p>
+        <p class="lead">10+ years building data-centric products with Azure OpenAI, Python and TensorFlow. I'm currently doing doctoral research in generative AI and predictive modeling, and I build ML, RAG and agentic AI solutions deployed with MLOps best practices.</p>
         <div class="btns">
           <a class="btn primary" href="#projects">View my work</a>
           <a class="btn" href="https://github.com/preeti-nancy" target="_blank" rel="noopener">GitHub ↗</a>
@@ -135,10 +138,10 @@
       <img class="avatar" src="https://avatars.githubusercontent.com/u/18681344?v=4" alt="Preeti Nancy Kujur">
     </div>
     <div class="stats">
-      <div class="stat"><b id="stat-repos">10+</b><span>Public projects</span></div>
-      <div class="stat"><b>4</b><span>AI domains: ML, DL, CV, NLP</span></div>
-      <div class="stat"><b>RAG</b><span>&amp; Agentic AI systems</span></div>
-      <div class="stat"><b>CI/CD</b><span>MLOps with GitHub Actions</span></div>
+      <div class="stat"><b>10+ yrs</b><span>Product, data &amp; analytics experience</span></div>
+      <div class="stat"><b>52</b><span>Markets served by an app I led</span></div>
+      <div class="stat"><b>100+ hrs</b><span>Manual effort saved per week</span></div>
+      <div class="stat"><b>98%</b><span>SLO compliance via monitoring I built</span></div>
     </div>
   </div>
 </header>
@@ -146,7 +149,7 @@
 <section id="projects">
   <div class="wrap">
     <h2>Featured work</h2>
-    <p class="sub">Selected projects solving real business problems, each with a problem statement, approach and outcome.</p>
+    <p class="sub">Professional impact and hands-on AI/ML projects, each solving a real business problem.</p>
     <div class="filters" id="filters"></div>
     <div class="grid" id="project-grid"></div>
   </div>
@@ -162,9 +165,32 @@
 
 <section id="experience">
   <div class="wrap">
-    <h2>Experience &amp; learning</h2>
-    <p class="sub">Where I've worked and what I've been building toward.</p>
+    <h2>Experience</h2>
+    <p class="sub">A decade across consulting, advertising and telecom: from analytics to product and data leadership.</p>
     <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education &amp; credentials</h2>
+    <p class="sub">Formal study, certifications and research.</p>
+    <div class="timeline" id="edu-timeline"></div>
+    <div class="skills" style="margin-top:40px">
+      <div class="skill-group">
+        <h3>Certifications</h3>
+        <div class="chips" id="certs"></div>
+      </div>
+      <div class="skill-group">
+        <h3>Publications</h3>
+        <p style="margin:0 0 8px;color:var(--muted)">Rec-Tech: A Recommendation System encapsulated in Online Technical Forum <em>(IJSRP)</em></p>
+        <p style="margin:0;color:var(--muted)">Android Based Appointment Scheduler and Location Helper using File Operation <em>(IOSR Journals)</em></p>
+      </div>
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <div class="chips"><span class="chip">English</span><span class="chip">Hindi</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -197,7 +223,32 @@
    ============================================================ */
 const GITHUB_USER = "preeti-nancy";
 
+// Entries without a `repo` are professional work (no code link shown).
 const PROJECTS = [
+  {
+    title: "AI-Driven Product Discovery",
+    category: "Professional",
+    summary: "Implemented AI-automated product discovery workflows using Azure OpenAI and ChatGPT, cutting time-to-market by 25%.",
+    tech: ["Azure OpenAI", "ChatGPT", "Product Management"]
+  },
+  {
+    title: "ML Pipelines for Anomaly Detection",
+    category: "Professional",
+    summary: "Architected machine learning pipelines for anomaly detection in operational data with engineering teams, boosting reliability by 20%.",
+    tech: ["Machine Learning", "Anomaly Detection", "Data Pipelines"]
+  },
+  {
+    title: "Global Financial Web Application",
+    category: "Professional",
+    summary: "Directed zero-to-one development of a financial web app across 52 markets in APAC, EMEA and the Americas, saving 100+ hours of manual effort per week.",
+    tech: ["Product Leadership", "React", ".NET", "GraphQL"]
+  },
+  {
+    title: "Financial Data Governance",
+    category: "Professional",
+    summary: "Established data governance policies and audit processes for a financial application, raising client satisfaction 15% and securing 90%+ compliance.",
+    tech: ["SQL", "Data Warehousing", "Governance"]
+  },
   {
     title: "Airline Q&A Bot: RAG Benchmarking",
     category: "GenAI",
@@ -271,26 +322,64 @@ const PROJECTS = [
 ];
 
 const SKILLS = {
-  "Languages & Data": ["Python", "SQL / MySQL", "Pandas", "NumPy", "Jupyter"],
-  "Machine Learning": ["Scikit-learn", "XGBoost", "Ensembles", "Feature Engineering", "Model Tuning"],
-  "Deep Learning & CV": ["Neural Networks", "CNNs", "TensorFlow / Keras", "Transfer Learning"],
-  "GenAI & NLP": ["LLMs", "RAG", "Prompt Engineering", "Agentic AI", "Embeddings"],
-  "Statistics & Viz": ["Hypothesis Testing", "A/B Testing", "Matplotlib", "Seaborn"],
-  "MLOps": ["GitHub Actions", "CI/CD", "Model Deployment", "Git"]
+  "GenAI & NLP": ["Azure OpenAI", "Prompt Engineering", "LLMs", "RAG", "Agentic AI", "NLTK"],
+  "Machine Learning": ["Python", "TensorFlow", "Scikit-learn", "Predictive Modeling", "Anomaly Detection", "Computer Vision"],
+  "Data & Analytics": ["SQL", "Power BI", "Data Governance", "A/B Testing", "Statistics"],
+  "Product & Delivery": ["Product Strategy", "Roadmapping", "Success Metrics & KPIs", "Agile", "Jira", "Confluence"],
+  "Platforms & Ops": ["MLOps", "CI/CD", "Cloud Migration", "Process Automation", "SLO Monitoring"],
+  "AI Tools": ["Claude", "Cursor", "ChatGPT", "GitHub Actions"]
 };
 
-// Edit roles, dates and descriptions to match your own history.
 const TIMELINE = [
   {
-    title: "eClerx",
-    meta: "Professional experience",
-    text: "Working on data-driven solutions for business operations. Update this line with your role, dates and key achievements."
+    title: "Lead Consultant",
+    meta: "eClerx Services · Jun 2024 – Present",
+    points: [
+      "Defined product vision and strategy from customer insights, driving a 10% increase in product adoption; product demos to stakeholders accelerated adoption by 20%.",
+      "Defined and tracked success metrics to drive experimentation, boosting KPIs by 25%.",
+      "Implemented monitoring systems for 98% SLO compliance, reducing system downtime by 30%.",
+      "Influenced engineering, analytics and operations groups to deliver 10% faster."
+    ]
   },
   {
-    title: "Post Graduate Program: AI & Machine Learning",
-    meta: "Capstone and hands-on projects",
-    text: "Completed applied projects across statistics, ML, deep learning, computer vision, NLP, generative AI and MLOps, all showcased above."
+    title: "Manager",
+    meta: "dentsu international · Oct 2019 – Jun 2024",
+    points: [
+      "Directed zero-to-one financial app development across 52 markets, saving 100+ hours/week, raising satisfaction 15% and ensuring 90%+ compliance.",
+      "Executed two-quarter roadmaps that increased feature usage 20%, and refined 6 user journeys to reduce drop-off 12%.",
+      "Spearheaded marketing analytics automation, improving accuracy 15% and streamlining global rollouts 20% across 6 Agile projects."
+    ]
+  },
+  {
+    title: "Senior Executive",
+    meta: "Vodafone India Services · Sep 2016 – Oct 2019",
+    points: [
+      "Designed Power BI and Excel dashboards that automated reporting and cut manual effort by 40%.",
+      "Ran competitive intelligence and feasibility studies for leadership to optimize telecom operations."
+    ]
+  },
+  {
+    title: "Senior Analyst",
+    meta: "eClerx Services · Feb 2016 – Jul 2016",
+    points: [
+      "Built automated dashboards and SQL reporting tools that reduced reporting time by 30%.",
+      "Delivered insights for retail clients that improved campaign performance by 18%."
+    ]
   }
+];
+
+const EDUCATION = [
+  { title: "Doctoral research, AI & Machine Learning", meta: "Walsh College · 2025 – present", text: "Research focus: generative AI and predictive modeling." },
+  { title: "PGP in Artificial Intelligence & Machine Learning", meta: "Great Learning · Sep 2025 – Oct 2026 · GPA 4.21", text: "The AI/ML projects featured above come from this program." },
+  { title: "Bachelor of Engineering, Computer Science", meta: "Supreme Knowledge Foundation Group of Institutions · Kolkata" }
+];
+
+const CERTIFICATIONS = [
+  "Azure OpenAI: Generative AI Models",
+  "eClerx GenAI Training",
+  "UiPath: Robotic Process Automation",
+  "Advanced ASP.NET Core: Unit Testing",
+  "AMCAT Certified Proficiency in English"
 ];
 
 /* ============================================================ */
@@ -307,7 +396,7 @@ function renderProjects(filter) {
       <p>${esc(p.summary)}</p>
       <div class="chips">${p.tech.map((t) => `<span class="chip">${esc(t)}</span>`).join("")}</div>
       <div class="links">
-        <a href="https://github.com/${GITHUB_USER}/${esc(p.repo)}" target="_blank" rel="noopener">Code ↗</a>
+        ${p.repo ? `<a href="https://github.com/${GITHUB_USER}/${esc(p.repo)}" target="_blank" rel="noopener">Code ↗</a>` : ""}
         ${p.demo ? `<a href="${esc(p.demo)}" target="_blank" rel="noopener">Live demo ↗</a>` : ""}
       </div>
     </article>`).join("");
@@ -332,12 +421,13 @@ function renderSkills() {
     </div>`).join("");
 }
 
-function renderTimeline() {
-  $("timeline").innerHTML = TIMELINE.map((t) => `
+function renderTimeline(id, items) {
+  $(id).innerHTML = items.map((t) => `
     <div class="tl-item">
       <h3>${esc(t.title)}</h3>
       <div class="meta">${esc(t.meta)}</div>
-      <p>${esc(t.text)}</p>
+      ${t.text ? `<p>${esc(t.text)}</p>` : ""}
+      ${t.points ? `<ul>${t.points.map((p) => `<li>${esc(p)}</li>`).join("")}</ul>` : ""}
     </div>`).join("");
 }
 
@@ -360,8 +450,6 @@ async function loadRecent() {
           <span class="desc">${esc(r.description || "")}</span></span>
         <span class="when">${esc(r.language || "")} · ${timeAgo(r.pushed_at)}</span>
       </a>`).join("");
-    const user = await fetch(`https://api.github.com/users/${GITHUB_USER}`).then((r) => r.json());
-    if (user.public_repos) $("stat-repos").textContent = user.public_repos;
   } catch {
     $("recent-list").innerHTML = `<p class="sub">See all my latest work on <a href="https://github.com/${GITHUB_USER}?tab=repositories">GitHub ↗</a></p>`;
   }
@@ -379,7 +467,9 @@ $("year").textContent = new Date().getFullYear();
 renderFilters();
 renderProjects("All");
 renderSkills();
-renderTimeline();
+renderTimeline("timeline", TIMELINE);
+renderTimeline("edu-timeline", EDUCATION);
+$("certs").innerHTML = CERTIFICATIONS.map((c) => `<span class="chip">${esc(c)}</span>`).join("");
 loadRecent();
 </script>
 </body>
